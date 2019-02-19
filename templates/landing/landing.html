@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="keywords" content="белье, женское белье, мужское белье, купальники, бюстгалтер" />
+	<meta name="description" content="магазин женского белья Triumph(Германия) и Luna(Италия)" />
+	<link rel="stylesheet" href="{% static 'static_dev/css/landing.css' %}" >
+	<link href="{% static 'static_dev/img/fav.png' %}" rel="shortcut icon" type="image/x-icon" />
+	<title>Triumph Minsk</title>
+
+    <!--для открытия сайта на сматрфоне-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--скрипты с сайта getbootstrap-->
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+
+    <style>
+
+    </style>
+
+</head>
+<body>
+
+<div class="general-container">
+    <div class="container top-container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="title">Наш магазин скоро откроется</h2>
+                <h2 class="title">Оставляйте Ваши контакты в форме ниже <i id="gly" class="glyphicon glyphicon-download"></i></h2>
+                <div style="text-align: center">
+                    <form action="" method="post" class="form-inline">{% csrf_token %}
+                    <div class="form-group">
+                        <label id="ll" for="exampleInputName2">Имя*:</label>
+                        <input type="text" name="{{ form.name.name }}" class="form-control" placeholder="Ева" required="">
+                    </div>
+                    <div class="form-group">
+                        <label id="ll" for="exampleInputEmail2">Email:</label>
+                        <input type="email" name="{{ form.email.name }}" class="form-control" placeholder="eva@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label id="ll" for="exampleInputPhone">Телефон*:</label>
+                        <input type="tel" name="{{ form.phone.name }}" class="form-control" placeholder="+375xxxxxxxxx" required="">
+                    </div>
+                    <button type="submit" class="btn btn-success">Отправить</button>
+                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            {% for image_item in product.productimage_set.all %}
+                <img src="{{image_item.image.url }}" class="img-responsive">
+            {% endfor %}
+        </div>
+        <div class="col-lg-6">
+            <h1 class="text-center">{{ product.name }}</h1>
+            <p>Price: {{ product.price }} BYN</p>
+            <div>
+                <form id="form_buying_product" class="form-inline" action="{% url 'basket_adding' %}">{% csrf_token %}
+                    <input type="number" class="form-control" id="number">
+                <button type="submit" id="submit_btn" class="btn btn-success"
+                data-product_id = "{{ product.id }}"
+                data-name = "{{ product.name }}"
+                data-price = "{{ product.price }}"
+                >Купить</button>
+                </form>
+            </div>
+            <div>
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active" role="presentation"><a href="#description" aria-controls="home" role="tab" data-toggle="tab">Описание</a></li>
+                    <li role="presentation"><a href="#size" aria-controls="profile" role="tab" data-toggle="tab">Размеры</a></li>
+                    <li role="presentation"><a href="#delivery" aria-controls="messages" role="tab" data-toggle="tab">Доставка</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" role="tabpanel" id="description">{{ product.description }}</div>
+                    <div class="tab-pane" role="tabpanel" id="size"><h3>XS, S, L, XL</h3></div>
+                    <div class="tab-pane" role="tabpanel" id="delivery">Доставка: самовывоз либо курьером</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+.top-container {
+    padding-top: 10%;
+}
+
+
+
+.general-container {
+    background: url('../img/back_land.jpg');
+    background-size: cover;
+    height: 100%;
+    display: block;
+    max-width: 100%;
+
+}
+
+.title {
+    color: blue;
+    text-align: center;
+}
+
+#gly {
+    font-size: 28px;
+    color: blue;
+}
+
+#ll {
+    color: white;
+}

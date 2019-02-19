@@ -1,0 +1,65 @@
+{% load static %}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+<nav class="navbar navbar-default navbar-main" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Навигация</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+        <a href="/" class="navbar-brand"> <img src="{% static 'static_dev/img/fav.png' %}" width="100"
+                                                               height="50" style="margin-top:-15px"> </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">Главная</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Каталог <i class="caret"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Нижнее белье</a></li>
+                <li class="divider"></li>
+              <li><a href="#">Домашняя одежда</a></li>
+                <li class="divider"></li>
+              <li><a href="#">Купальники</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Мужское белье</a></li>
+            </ul>
+          </li>
+            <li><a href="#">О нас</a></li>
+            <li><a href="#">ЛайфХаки</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#contact">Контакты</a></li>
+            <li>
+                <div class="basket-container">
+                    <a href="">Корзина <span id="basket_total_amount"></span>
+                    <span id="basket_total_nmb">
+                        {% if products_total_nmb %}
+                            ({{ products_total_nmb }})
+                        {% else %}
+                            (0)
+                        {% endif %}
+                    </span></a>
+                    <div class="basket-items hidden">
+                        <ul class="">
+                            {% for product_in_basket in products_in_basket %}
+                                <li>
+                                    {{ product_in_basket.product.name }} {{ product_in_basket.nmb }} шт.
+                                    по {{ product_in_basket.price_per_item }} BYN.
+                                    <a class="delete-item" href="" data-product_id="{{ product_in_basket.id }}">x</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
